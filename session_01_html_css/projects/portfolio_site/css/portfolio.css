@@ -41,3 +41,64 @@
 .portfolio-overlay {
     display: none;
 }
+/* Thiết lập cho từng item */
+.portfolio-item {
+    position: relative; /* Để lớp overlay căn theo ô này */
+    cursor: pointer;
+}
+
+/* Hiệu ứng phóng to ảnh khi hover */
+.portfolio-item img {
+    transition: transform 0.5s ease; /* Chuyển động mượt trong 0.5 giây */
+}
+
+.portfolio-item:hover img {
+    transform: scale(1.1); /* Phóng to 10% */
+}
+
+/* Thiết kế lớp phủ Overlay */
+.portfolio-overlay {
+    /* Hiển thị lại sau khi đã ẩn ở Lần 1 */
+    display: flex !important; 
+    
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    
+    /* Tạo dải màu tối dần từ dưới lên để chữ nổi bật */
+    background: linear-gradient(
+        to top,
+        rgba(30, 41, 59, 0.95) 0%,
+        rgba(30, 41, 59, 0.6) 50%,
+        transparent 100%
+    );
+    
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 25px;
+    color: white;
+    
+    /* Hiệu ứng ẩn/hiện ban đầu */
+    opacity: 0;
+    transform: translateY(20px); /* Đẩy nội dung xuống 20px */
+    transition: all 0.4s ease;
+}
+
+/* Hiện Overlay khi di chuột vào Portfolio Item */
+.portfolio-item:hover .portfolio-overlay {
+    opacity: 1;
+    transform: translateY(0); /* Bay lên vị trí cũ */
+}
+
+.portfolio-overlay h3 {
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.portfolio-overlay p {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
