@@ -60,3 +60,47 @@
         gap: 2rem;
     }
 }
+/* Hiệu ứng khi người dùng click vào ô nhập liệu (Focus) */
+.form-group input:focus, 
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+}
+
+/* Validation UI: Hiển thị trạng thái khi người dùng nhập liệu */
+/* Khi ô input không trống và dữ liệu hợp lệ (ví dụ đúng định dạng email) */
+.form-group input:not(:placeholder-shown):valid,
+.form-group textarea:not(:placeholder-shown):valid {
+    border-color: #10b981; /* Màu xanh lá */
+}
+
+/* Khi ô input không trống nhưng dữ liệu sai định dạng */
+.form-group input:not(:placeholder-shown):invalid {
+    border-color: #ef4444; /* Màu đỏ */
+}
+
+/* Hiệu ứng nút bấm (Submit Button) */
+.submit-btn {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+    filter: brightness(1.1);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
