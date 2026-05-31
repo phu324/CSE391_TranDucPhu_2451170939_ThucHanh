@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tier 2 - Control Flow</title>
+</head>
+
+<body>
+    <h1>Mở Console (F12)</h1>
+
+<script>
+
+    // ==================================================
+    // BÀI 2.1 — IF / ELSE
+    // ==================================================
+    console.log("===== BÀI 2.1 =====");
+
+    // Phân loại điểm
+    let diem = 7.5;
+
+    if (diem >= 8) {
+        console.log("Giỏi");
+    } else if (diem >= 6.5) {
+        console.log("Khá");
+    } else if (diem >= 5) {
+        console.log("Trung bình");
+    } else {
+        console.log("Yếu");
+    }
+
+    // Kiểm tra điều kiện lái xe
+    let tuoi = 20;
+    let coGPLX = true;
+
+    if (tuoi >= 18 && coGPLX) {
+        console.log("Được phép lái xe");
+    } else if (tuoi >= 18 && !coGPLX) {
+        console.log("Cần thi lấy bằng");
+    } else {
+        console.log("Chưa đủ tuổi");
+    }
+
+    // Toán tử 3 ngôi
+    let so = 10;
+
+    let ketQua = (so % 2 === 0)
+        ? "Số chẵn"
+        : "Số lẻ";
+
+    console.log(ketQua);
+
+    // Kiểm tra rỗng
+    let ten = "";
+
+    if (!ten) {
+        console.log("Chưa nhập tên");
+    } else {
+        console.log("Xin chào", ten);
+    }
+
+
+    // ===== THỬ THÁCH =====
+
+    // 1. Xếp loại học lực
+    let diemHocSinh = 9;
+
+    if (diemHocSinh >= 9 && diemHocSinh <= 10) {
+        console.log("Xuất sắc");
+    } else if (diemHocSinh >= 8) {
+        console.log("Giỏi");
+    } else if (diemHocSinh >= 7) {
+        console.log("Khá");
+    } else if (diemHocSinh >= 5) {
+        console.log("Trung bình");
+    } else if (diemHocSinh >= 0) {
+        console.log("Yếu");
+    } else {
+        console.log("Điểm không hợp lệ");
+    }
+
+    // 2. Kiểm tra năm nhuận
+    let nam = 2024;
+
+    if (nam % 4 === 0 &&
+        (nam % 100 !== 0 || nam % 400 === 0)) {
+        console.log(`${nam} là năm nhuận`);
+    } else {
+        console.log(`${nam} không phải năm nhuận`);
+    }
+
+
+
+    // ==================================================
+    // BÀI 2.2 — SWITCH CASE
+    // ==================================================
+    console.log("===== BÀI 2.2 =====");
+
+    // Thứ trong tuần
+    let ngay = 3;
+
+    switch (ngay) {
+        case 1:
+            console.log("Thứ Hai");
+            break;
+
+        case 2:
+            console.log("Thứ Ba");
+            break;
+
+        case 3:
+            console.log("Thứ Tư");
+            break;
+
+        case 4:
+            console.log("Thứ Năm");
+            break;
+
+        case 5:
+            console.log("Thứ Sáu");
+            break;
+
+        case 6:
+            console.log("Thứ Bảy");
+            break;
+
+        case 0:
+            console.log("Chủ Nhật");
+            break;
+
+        default:
+            console.log("Ngày không hợp lệ");
+    }
+
+    // Số ngày trong tháng
+    let thang = 5;
+    let soNgay;
+
+    switch (thang) {
+        case 1:
+        case 3:
+        case 5:
+        case 7:
+        case 8:
+        case 10:
+        case 12:
+            soNgay = 31;
+            break;
+
+        case 4:
+        case 6:
+        case 9:
+        case 11:
+            soNgay = 30;
+            break;
+
+        case 2:
+            soNgay = 28;
+            break;
+
+        default:
+            soNgay = -1;
+    }
+
+    console.log(`Tháng ${thang} có ${soNgay} ngày`);
+
+
+    // ===== THỬ THÁCH =====
+    let so1 = 20;
+    let so2 = 5;
+    let phepTinh = "*";
+
+    switch (phepTinh) {
+        case "+":
+            console.log(so1 + so2);
+            break;
+
+        case "-":
+            console.log(so1 - so2);
+            break;
+
+        case "*":
+            console.log(so1 * so2);
+            break;
+
+        case "/":
+            console.log(so1 / so2);
+            break;
+
+        default:
+            console.log("Phép tính không hợp lệ");
+    }
+
+
+
+    // ==================================================
+    // BÀI 2.3 — FOR LOOP
+    // ==================================================
+    console.log("===== BÀI 2.3 =====");
+
+    // In 1 -> 10
+    for (let i = 1; i <= 10; i++) {
+        console.log(i);
+    }
+
+    // Tổng 1 -> 100
+    let tong = 0;
+
+    for (let i = 1; i <= 100; i++) {
+        tong += i;
+    }
+
+    console.log(tong);
+
+    // Lặp mảng
+    let monHoc = ["HTML", "CSS", "JavaScript", "React"];
+
+    for (let i = 0; i < monHoc.length; i++) {
+        console.log(monHoc[i]);
+    }
+
+    // for...of
+    for (let mon of monHoc) {
+        console.log("Học:", mon);
+    }
+
+    // for...in
+    let sinhVien = {
+        ten: "Phú",
+        tuoi: 20,
+        lop: "CNTT"
+    };
+
+    for (let key in sinhVien) {
+        console.log(`${key}: ${sinhVien[key]}`);
+    }
+
+
+    // ===== THỬ THÁCH =====
+
+    // 1. số chẵn từ 1 -> 50
+    for (let i = 1; i <= 50; i++) {
+        if (i % 2 === 0) {
+            console.log(i);
+        }
+    }
+
+    // 2. tìm max trong mảng
+    let arr = [4, 7, 2, 9, 1, 5];
+    let max = arr[0];
+
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] > max) {
+            max = arr[i];
+        }
+    }
+
+    console.log("Số lớn nhất:", max);
+
+    // 3. đếm số chia hết cho 3
+    let dem = 0;
+
+    for (let i = 1; i <= 100; i++) {
+        if (i % 3 === 0) {
+            dem++;
+        }
+    }
+
+    console.log("Có", dem, "số chia hết cho 3");
+
+
+
+    // ==================================================
+    // BÀI 2.4 — WHILE / DO WHILE
+    // ==================================================
+    console.log("===== BÀI 2.4 =====");
+
+    // while
+    let number = 1;
+
+    while (number <= 5) {
+        console.log(number);
+        number++;
+    }
+
+    // tìm số dương
+    let nhap = -1;
+    let lanThu = 0;
+
+    while (nhap <= 0) {
+        lanThu++;
+
+        nhap =
+            Math.floor(Math.random() * 10) - 3;
+
+        console.log(`Lần ${lanThu}: ${nhap}`);
+    }
+
+    console.log("Đã tìm thấy:", nhap);
+
+    // do while
+    let luaChon;
+
+    do {
+        luaChon =
+            Math.floor(Math.random() * 4) + 1;
+
+        console.log(luaChon);
+
+    } while (luaChon !== 3);
+
+    console.log("Đã chọn 3");
+
+    // break
+    for (let i = 1; i <= 10; i++) {
+
+        if (i === 5) {
+            break;
+        }
+
+        console.log(i);
+    }
+
+    // continue
+    for (let i = 1; i <= 10; i++) {
+
+        if (i % 2 === 0) {
+            continue;
+        }
+
+        console.log(i);
+    }
+
+
+    // ===== THỬ THÁCH =====
+
+    // 1. giai thừa
+    let n = 5;
+    let giaiThua = 1;
+    let i = 1;
+
+    while (i <= n) {
+        giaiThua *= i;
+        i++;
+    }
+
+    console.log(`${n}! = ${giaiThua}`);
+
+    // 2. fibonacci đầu tiên > 1000
+    let a = 0;
+    let b = 1;
+
+    while (b <= 1000) {
+        let temp = a + b;
+        a = b;
+        b = temp;
+    }
+
+    console.log("Fibonacci đầu tiên > 1000:", b);
+
+    // 3. số nguyên tố 2 -> 50
+    for (let num = 2; num <= 50; num++) {
+
+        let laSoNguyenTo = true;
+
+        for (let j = 2; j < num; j++) {
+            if (num % j === 0) {
+                laSoNguyenTo = false;
+                break;
+            }
+        }
+
+        if (laSoNguyenTo) {
+            console.log(num);
+        }
+    }
+
+</script>
+
+</body>
+
+</html>
