@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tier 3 - Functions</title>
+</head>
+
+<body>
+
+```
+<h1>Mở Console (F12)</h1>
+
+<script>
+
+    // ==================================================
+    // BÀI 3.1 — HÀM CƠ BẢN (FUNCTION DECLARATION)
+    // ==================================================
+    console.log("===== BÀI 3.1 =====");
+
+    // Hàm đơn giản
+    function chaoHoi() {
+        console.log("Xin chào các bạn!");
+        console.log("Chào mừng đến với JavaScript");
+    }
+
+    chaoHoi();
+    chaoHoi();
+
+    // Hàm có tham số
+    function chaoTen(ten) {
+        console.log(`Xin chào ${ten}!`);
+    }
+
+    chaoTen("Phú");
+    chaoTen("Nam");
+    chaoTen("Linh");
+
+    // Hàm nhiều tham số
+    function tinhTong(a, b) {
+        let ketQua = a + b;
+
+        console.log(`${a} + ${b} = ${ketQua}`);
+
+        return ketQua;
+    }
+
+    let tong = tinhTong(5, 3);
+    console.log("Kết quả:", tong);
+
+    // Giá trị mặc định
+    function tinhDienTich(r, pi = 3.14) {
+        return pi * r * r;
+    }
+
+    console.log(tinhDienTich(5));
+    console.log(tinhDienTich(5, Math.PI));
+
+
+    // ===== THỬ THÁCH =====
+
+    // 1. kiểm tra chẵn lẻ
+    function kiemTraChanLe(so) {
+        if (so % 2 === 0) {
+            return "Chẵn";
+        }
+
+        return "Lẻ";
+    }
+
+    console.log(kiemTraChanLe(7));
+
+    // 2. tính giai thừa
+    function tinhGiaiThua(n) {
+        let ketQua = 1;
+
+        for (let i = 1; i <= n; i++) {
+            ketQua *= i;
+        }
+
+        return ketQua;
+    }
+
+    console.log(tinhGiaiThua(5));
+
+    // 3. tìm max
+    function timMax(a, b, c) {
+        return Math.max(a, b, c);
+    }
+
+    console.log(timMax(4, 9, 2));
+
+
+
+    // ==================================================
+    // BÀI 3.2 — FUNCTION EXPRESSION & ARROW FUNCTION
+    // ==================================================
+    console.log("===== BÀI 3.2 =====");
+
+    // Function Expression
+    const tinhBinhPhuong = function (so) {
+        return so * so;
+    };
+
+    console.log(tinhBinhPhuong(5));
+
+    // Arrow Function
+    const tinhLapPhuong = (so) => {
+        return so * so * so;
+    };
+
+    console.log(tinhLapPhuong(3));
+
+    // Arrow ngắn gọn
+    const tinhChuVi = (a, b) => 2 * (a + b);
+
+    console.log(tinhChuVi(5, 3));
+
+    // 1 tham số
+    const inRa = x =>
+        console.log("Giá trị:", x);
+
+    inRa(42);
+
+
+    // So sánh 3 cách viết
+    function cong1(a, b) {
+        return a + b;
+    }
+
+    const cong2 = function (a, b) {
+        return a + b;
+    };
+
+    const cong3 = (a, b) => a + b;
+
+    console.log(cong1(1, 2));
+    console.log(cong2(1, 2));
+    console.log(cong3(1, 2));
+
+
+    // ===== THỬ THÁCH =====
+
+    // 1. năm nhuận
+    const laNamNhuan = (nam) =>
+        nam % 4 === 0 &&
+        (nam % 100 !== 0 || nam % 400 === 0);
+
+    console.log(laNamNhuan(2024));
+
+    // 2. đổi độ C -> F
+    const chuyenDoiNhietDo =
+        (doC) => (doC * 9 / 5) + 32;
+
+    console.log(chuyenDoiNhietDo(30));
+
+    // 3. đảo chuỗi
+    const daoNguocChuoi =
+        (str) => str.split("").reverse().join("");
+
+    console.log(daoNguocChuoi("JavaScript"));
+
+
+
+    // ==================================================
+    // BÀI 3.3 — HÀM VỚI ARRAY
+    // ==================================================
+    console.log("===== BÀI 3.3 =====");
+
+    // tính điểm trung bình
+    function tinhDiemTB(diemList) {
+
+        let tong = 0;
+
+        for (let diem of diemList) {
+            tong += diem;
+        }
+
+        return tong / diemList.length;
+    }
+
+    let diemSV = [7, 8, 6.5, 9, 7.5];
+
+    console.log(
+        "Điểm TB:",
+        tinhDiemTB(diemSV)
+    );
+
+    // lấy số chẵn
+    function laySoChan(arr) {
+
+        let ketQua = [];
+
+        for (let so of arr) {
+            if (so % 2 === 0) {
+                ketQua.push(so);
+            }
+        }
+
+        return ketQua;
+    }
+
+    let soNgauNhien =
+        [1, 4, 7, 2, 9, 6, 3, 8];
+
+    console.log(
+        laySoChan(soNgauNhien)
+    );
+
+    // callback function
+    function xuLyMang(arr, hamXuLy) {
+
+        let ketQua = [];
+
+        for (let item of arr) {
+            ketQua.push(
+                hamXuLy(item)
+            );
+        }
+
+        return ketQua;
+    }
+
+    let mangGoc = [1, 2, 3, 4, 5];
+
+    let mangDoi =
+        xuLyMang(mangGoc,
+            x => x * 2);
+
+    console.log(mangDoi);
+
+    let mangChuoi =
+        xuLyMang(
+            mangGoc,
+            x => `Số ${x}`
+        );
+
+    console.log(mangChuoi);
+
+
+    // ===== THỬ THÁCH =====
+
+    // 1. số lớn nhất
+    function timSoLonNhat(arr) {
+
+        let max = arr[0];
+
+        for (let so of arr) {
+            if (so > max) {
+                max = so;
+            }
+        }
+
+        return max;
+    }
+
+    console.log(
+        timSoLonNhat([4, 7, 2, 9, 1, 5])
+    );
+
+    // 2. đếm số âm
+    function demSoAm(arr) {
+
+        let dem = 0;
+
+        for (let so of arr) {
+            if (so < 0) {
+                dem++;
+            }
+        }
+
+        return dem;
+    }
+
+    console.log(
+        demSoAm([1, -2, -5, 6, -8])
+    );
+
+    // 3. lọc điểm cao
+    function locDiemCao(arr, diemCan) {
+
+        let ketQua = [];
+
+        for (let diem of arr) {
+            if (diem >= diemCan) {
+                ketQua.push(diem);
+            }
+        }
+
+        return ketQua;
+    }
+
+    console.log(
+        locDiemCao(
+            [4, 8, 7, 9, 5],
+            7
+        )
+    );
+
+
+
+    // ==================================================
+    // BÀI 3.4 — SCOPE & CLOSURE
+    // ==================================================
+    console.log("===== BÀI 3.4 =====");
+
+    // Global scope
+    let bienToanCuc =
+        "Tôi ở ngoài cùng";
+
+    function hamA() {
+        console.log(bienToanCuc);
+    }
+
+    hamA();
+    console.log(bienToanCuc);
+
+
+    // Local scope
+    function hamB() {
+
+        let bienLocal =
+            "Tôi chỉ ở trong hamB";
+
+        console.log(bienLocal);
+    }
+
+    hamB();
+
+
+    // Block scope
+    if (true) {
+
+        let trongBlock =
+            "Trong block";
+
+        const cungTrongBlock =
+            "Const block";
+
+        var varTrongBlock =
+            "Var thoát ra ngoài";
+    }
+
+    console.log(varTrongBlock);
+
+
+    // Closure
+    function taoBoDem() {
+
+        let dem = 0;
+
+        return function () {
+            dem++;
+            return dem;
+        };
+    }
+
+    let boDem = taoBoDem();
+
+    console.log(boDem());
+    console.log(boDem());
+    console.log(boDem());
+
+    let boDem2 = taoBoDem();
+
+    console.log(boDem2());
+
+
+    // ===== THỬ THÁCH =====
+
+    // dự đoán scope
+    let x = 10;
+
+    function test() {
+
+        // console.log(x); ❌ lỗi
+
+        let x = 20;
+
+        console.log(x);
+    }
+
+    test();
+
+
+    // máy tính đơn giản
+    function taoMayTinh() {
+
+        return {
+            cong(a, b) {
+                return a + b;
+            },
+
+            tru(a, b) {
+                return a - b;
+            },
+
+            nhan(a, b) {
+                return a * b;
+            },
+
+            chia(a, b) {
+                return a / b;
+            }
+        };
+    }
+
+    let mayTinh = taoMayTinh();
+
+    console.log(
+        mayTinh.cong(10, 5)
+    );
+
+    console.log(
+        mayTinh.tru(10, 5)
+    );
+
+    console.log(
+        mayTinh.nhan(10, 5)
+    );
+
+    console.log(
+        mayTinh.chia(10, 5)
+    );
+
+</script>
+```
+
+</body>
+
+</html>
