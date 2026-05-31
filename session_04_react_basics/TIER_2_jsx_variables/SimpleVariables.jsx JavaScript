@@ -1,0 +1,51 @@
+import { useState } from "react";
+
+function SimpleVariables() {
+    // 1. Biến thông tin cá nhân (Thử thách 1)
+    const ten = "Nguyễn Văn Minh";
+    const tuoi = 20;
+    const queQuan = "Hà Nội";
+    const laSinhVien = true;
+    const monHoc = ["HTML", "CSS", "JS", "React"];
+    
+    // 2. Logic xử lý lời chào theo giờ thực tế (Thử thách 2)
+    const gioHienTai = new Date().getHours();
+    let loiChao = "Chào buổi tối 🌙";
+    if (gioHienTai < 12) {
+        loiChao = "Chào buổi sáng ☀️";
+    } else if (gioHienTai < 18) {
+        loiChao = "Chào buổi chiều 🌤️";
+    }
+
+    // 3. Tính toán chỉ số BMI (Thử thách 3)
+    const canNangKg = 65;
+    const chieuCaoMet = 1.70;
+    const chiSoBMI = (canNangKg / (chieuCaoMet * chieuCaoMet)).toFixed(1);
+    
+    return (
+        <div style={{ padding: "20px", fontFamily: "Arial, sans-serif" }}>
+            <h2>{loiChao}</h2>
+            
+            <div style={{ background: "#f5f6fa", padding: "15px", borderRadius: "8px" }}>
+                <h3>Thông Tin Cá Nhân</h3>
+                <p><strong>Họ và tên:</strong> {ten}</p>
+                <p><strong>Tuổi:</strong> {tuoi} (Sang năm: {tuoi + 1})</p>
+                <p><strong>Quê quán:</strong> {queQuan}</p>
+                <p><strong>Sinh viên:</strong> {laSinhVien ? "Đang đi học" : "Đã tốt nghiệp"}</p>
+            </div>
+            
+            <div style={{ marginTop: "15px" }}>
+                <h3>Môn học yêu thích</h3>
+                <p>{monHoc.join(" ~ ")}</p>
+            </div>
+
+            <div style={{ marginTop: "15px", padding: "10px", background: "#e1b12c", color: "#fff", borderRadius: "5px" }}>
+                <h3>Kiểm tra sức khỏe (BMI)</h3>
+                <p>Cân nặng: {canNangKg}kg | Chiều cao: {chieuCaoMet}m</p>
+                <p><strong>Chỉ số BMI của bạn:</strong> {chiSoBMI}</p>
+            </div>
+        </div>
+    );
+}
+
+export default SimpleVariables;
