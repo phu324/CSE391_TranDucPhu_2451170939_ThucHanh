@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tier 4 - Arrays & Objects</title>
+</head>
+
+<body>
+
+```
+<h1>Mở Console (F12)</h1>
+
+<script>
+
+    // ==================================================
+    // BÀI 4.1 — ARRAY CƠ BẢN
+    // ==================================================
+    console.log("===== BÀI 4.1 =====");
+
+    // tạo mảng
+    let monHoc = [
+        "HTML",
+        "CSS",
+        "JavaScript"
+    ];
+
+    let diemSo = [
+        8,
+        7,
+        9,
+        6.5,
+        8.5
+    ];
+
+    let honHop = [
+        1,
+        "hello",
+        true,
+        null,
+        [1, 2, 3]
+    ];
+
+    console.log(monHoc);
+    console.log("Độ dài:",
+        monHoc.length);
+
+    // truy cập phần tử
+    console.log(
+        "Môn đầu:",
+        monHoc[0]
+    );
+
+    console.log(
+        "Môn cuối:",
+        monHoc[
+        monHoc.length - 1
+        ]
+    );
+
+    // thêm cuối
+    monHoc.push("React");
+    console.log(monHoc);
+
+    // xóa cuối
+    monHoc.pop();
+    console.log(monHoc);
+
+    // thêm đầu
+    monHoc.unshift("Git");
+    console.log(monHoc);
+
+    // xóa đầu
+    monHoc.shift();
+    console.log(monHoc);
+
+    // tìm kiếm
+    let viTri =
+        monHoc.indexOf("CSS");
+
+    console.log(viTri);
+
+    let coTonTai =
+        monHoc.includes("React");
+
+    console.log(coTonTai);
+
+    // sắp xếp
+    let so = [
+        3, 1, 4, 1, 5,
+        9, 2, 6
+    ];
+
+    so.sort((a, b) => a - b);
+    console.log(so);
+
+    so.sort((a, b) => b - a);
+    console.log(so);
+
+    // đảo ngược
+    monHoc.reverse();
+    console.log(monHoc);
+
+
+    // ===== THỬ THÁCH =====
+
+    // 1
+    let sinhVien = [
+        "Minh",
+        "An",
+        "Linh",
+        "Hoa",
+        "Nam"
+    ];
+
+    sinhVien.push("Phú");
+    sinhVien.push("Hùng");
+
+    sinhVien.shift();
+
+    console.log(sinhVien);
+
+    // 2
+    let diem = [
+        7, 9, 4, 10, 8
+    ];
+
+    diem.sort(
+        (a, b) => b - a
+    );
+
+    console.log(diem);
+
+    // 3
+    console.log(
+        monHoc.includes(
+            "JavaScript"
+        )
+    );
+
+
+
+    // ==================================================
+    // BÀI 4.2 — ARRAY METHODS
+    // ==================================================
+    console.log("===== BÀI 4.2 =====");
+
+    // forEach
+    let dsSinhVien = [
+        "Minh",
+        "An",
+        "Linh",
+        "Hoa"
+    ];
+
+    dsSinhVien.forEach(
+        (ten, index) => {
+            console.log(
+                `${index + 1}. ${ten}`
+            );
+        }
+    );
+
+    // map
+    let diemHocTap =
+        [7, 8, 6, 9, 5];
+
+    let diemNhanDoi =
+        diemHocTap.map(
+            d => d * 2
+        );
+
+    console.log(
+        diemNhanDoi
+    );
+
+    let thongBao =
+        diemHocTap.map(
+            d => `Điểm: ${d}`
+        );
+
+    console.log(thongBao);
+
+    // filter
+    let soNgauNhien =
+        [12, 5, 8, 130, 44, 7];
+
+    let soLon =
+        soNgauNhien.filter(
+            so => so > 10
+        );
+
+    console.log(soLon);
+
+    // find
+    let users = [
+        {
+            id: 1,
+            ten: "Minh",
+            tuoi: 20
+        },
+        {
+            id: 2,
+            ten: "An",
+            tuoi: 22
+        },
+        {
+            id: 3,
+            ten: "Linh",
+            tuoi: 19
+        }
+    ];
+
+    let userTimThay =
+        users.find(
+            u => u.ten === "An"
+        );
+
+    console.log(userTimThay);
+
+    // reduce
+    let tongDiem =
+        diemHocTap.reduce(
+            (tong, diem) =>
+                tong + diem,
+            0
+        );
+
+    console.log(tongDiem);
+
+    // some
+    let coDiemYeu =
+        diemHocTap.some(
+            d => d < 5
+        );
+
+    console.log(coDiemYeu);
+
+    // every
+    let tatCaDat =
+        diemHocTap.every(
+            d => d >= 5
+        );
+
+    console.log(tatCaDat);
+
+
+    // ===== THỬ THÁCH =====
+
+    // 1
+    let tuoi20 =
+        users.filter(
+            u => u.tuoi >= 20
+        );
+
+    console.log(tuoi20);
+
+    // 2
+    let thongTinSV =
+        users.map(
+            u =>
+                `${u.ten} (${u.tuoi} tuổi)`
+        );
+
+    console.log(thongTinSV);
+
+    // 3
+    let diemTB =
+        diemHocTap.reduce(
+            (tong, diem) =>
+                tong + diem,
+            0
+        ) / diemHocTap.length;
+
+    console.log(diemTB);
+
+    // 4
+    let timLinh =
+        users.find(
+            u => u.ten === "Linh"
+        );
+
+    console.log(timLinh);
+
+
+
+    // ==================================================
+    // BÀI 4.3 — OBJECT CƠ BẢN
+    // ==================================================
+    console.log("===== BÀI 4.3 =====");
+
+    let sinhVienObj = {
+        ten:
+            "Nguyễn Văn Minh",
+
+        tuoi: 20,
+
+        lop:
+            "CNTT-K65",
+
+        diem: {
+            html: 8,
+            css: 7.5,
+            js: 9
+        },
+
+        laSinhVien: true
+    };
+
+    console.log(
+        sinhVienObj.ten
+    );
+
+    console.log(
+        sinhVienObj["tuoi"]
+    );
+
+    console.log(
+        sinhVienObj.diem.js
+    );
+
+    // thêm/sửa
+    sinhVienObj.email =
+        "minh@gmail.com";
+
+    sinhVienObj.tuoi =
+        21;
+
+    console.log(
+        sinhVienObj
+    );
+
+    // xóa
+    delete
+    sinhVienObj.laSinhVien;
+
+    console.log(
+        sinhVienObj
+    );
+
+    // kiểm tra
+    console.log(
+        "email"
+        in
+        sinhVienObj
+    );
+
+    console.log(
+        sinhVienObj
+            .hasOwnProperty(
+                "ten"
+            )
+    );
+
+    // duyệt object
+    for (let key
+        in
+        sinhVienObj) {
+
+        if (
+            typeof
+            sinhVienObj[key]
+            !== "object"
+        ) {
+
+            console.log(
+                `${key}: ${sinhVienObj[key]}`
+            );
+        }
+    }
+
+    console.log(
+        Object.keys(
+            sinhVienObj
+        )
+    );
+
+    console.log(
+        Object.values(
+            sinhVienObj
+        )
+    );
+
+
+    // ===== THỬ THÁCH =====
+
+    let monHocObj = {
+        ten:
+            "JavaScript",
+        soTinChi: 3,
+        giangVien:
+            "Nguyễn Văn A",
+        diem: 8.5
+    };
+
+    monHocObj.lichHoc = [
+        "Thứ 2",
+        "Thứ 5"
+    ];
+
+    for (let key
+        in
+        monHocObj) {
+
+        console.log(
+            `${key}:`,
+            monHocObj[key]
+        );
+    }
+
+
+
+    // ==================================================
+    // BÀI 4.4 — OBJECT METHODS & JSON
+    // ==================================================
+    console.log("===== BÀI 4.4 =====");
+
+    let mayTinh = {
+
+        giaTri: 0,
+
+        cong(so) {
+            this.giaTri += so;
+            return this;
+        },
+
+        tru(so) {
+            this.giaTri -= so;
+            return this;
+        },
+
+        nhan(so) {
+            this.giaTri *= so;
+            return this;
+        },
+
+        layKetQua() {
+            return this.giaTri;
+        },
+
+        reset() {
+            this.giaTri = 0;
+            return this;
+        }
+    };
+
+    let ketQua =
+        mayTinh
+            .cong(10)
+            .tru(3)
+            .nhan(2)
+            .layKetQua();
+
+    console.log(
+        ketQua
+    );
+
+
+    // constructor
+    function SinhVien(
+        ten,
+        tuoi,
+        lop
+    ) {
+
+        this.ten = ten;
+        this.tuoi = tuoi;
+        this.lop = lop;
+
+        this.hienThi =
+            function () {
+                console.log(
+                    `${this.ten} - ${this.lop}`
+                );
+            };
+    }
+
+    let sv1 =
+        new SinhVien(
+            "Minh",
+            20,
+            "CNTT-K65"
+        );
+
+    let sv2 =
+        new SinhVien(
+            "An",
+            21,
+            "CNTT-K66"
+        );
+
+    sv1.hienThi();
+    sv2.hienThi();
+
+
+    // JSON
+    let jsonString =
+        JSON.stringify(
+            sinhVienObj
+        );
+
+    console.log(
+        jsonString
+    );
+
+    let jsonObject =
+        JSON.parse(
+            jsonString
+        );
+
+    console.log(
+        jsonObject
+    );
+
+
+    // dữ liệu API giả
+    let apiData = `
+    [
+        {
+            "id":1,
+            "name":"iPhone 15",
+            "price":25000000
+        },
+        {
+            "id":2,
+            "name":"Samsung S24",
+            "price":22000000
+        },
+        {
+            "id":3,
+            "name":"Xiaomi 14",
+            "price":15000000
+        }
+    ]
+    `;
+
+    let sanPham =
+        JSON.parse(
+            apiData
+        );
+
+    let re =
+        sanPham.filter(
+            sp =>
+                sp.price <
+                20000000
+        );
+
+    console.log(re);
+
+
+    // ===== THỬ THÁCH =====
+
+    let sinhVienMoi = {
+
+        ten: "Phú",
+
+        diem: [
+            8, 9, 7
+        ],
+
+        tinhDiemTB() {
+
+            let tong =
+                this.diem.reduce(
+                    (a, b) =>
+                         a + b,
+                    0
+                );
+
+            return tong
+                /
+                this.diem.length;
+        }
+    };
+
+    console.log(
+        sinhVienMoi
+            .tinhDiemTB()
+    );
+
+
+
+    // ==================================================
+    // BÀI 4.5 — DESTRUCTURING & SPREAD
+    // ==================================================
+    console.log("===== BÀI 4.5 =====");
+
+    let [a, b, c] =
+        [1, 2, 3];
+
+    console.log(
+        a, b, c
+    );
+
+    let [x, , z] =
+        [10, 20, 30];
+
+    console.log(x, z);
+
+    let [
+        first,
+        ...rest
+    ] =
+        [1, 2, 3, 4, 5];
+
+    console.log(first);
+    console.log(rest);
+
+    // object destructuring
+    let sinhVienDes = {
+        ten: "Phú",
+        tuoi: 20,
+        lop: "CNTT"
+    };
+
+    let {
+        ten,
+        tuoi
+    } = sinhVienDes;
+
+    console.log(
+        ten,
+        tuoi
+    );
+
+    // spread
+    let diem1 =
+        [7, 8, 9];
+
+    let diem2 =
+        [5, 6, 10];
+
+    let tatCaDiem =
+        [
+            ...diem1,
+            ...diem2
+        ];
+
+    console.log(
+        tatCaDiem
+    );
+
+    let svCu = {
+        ten: "Phú",
+        tuoi: 20
+    };
+
+    let svMoi2 = {
+        ...svCu,
+        diemTB: 8.5
+    };
+
+    console.log(
+        svMoi2
+    );
+
+</script>
+```
+
+</body>
+
+</html>
