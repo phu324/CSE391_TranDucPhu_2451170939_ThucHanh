@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tier 1 JavaScript</title>
+</head>
+
+<body>
+    <h1>Mở Console (F12) để xem kết quả</h1>
+
+```
+<script>
+    // ==================================================
+    // BÀI 1.1 — HELLO CONSOLE
+    // ==================================================
+    console.log("===== BÀI 1.1 =====");
+
+    console.log("Xin chào JavaScript!");
+    console.log("Tôi là sinh viên năm 2026");
+    console.log(100 + 200);
+
+
+
+    // ==================================================
+    // BÀI 1.2 — KHAI BÁO BIẾN
+    // ==================================================
+    console.log("===== BÀI 1.2 =====");
+
+    // let
+    let ten = "Phú";
+    let tuoi = 20;
+    let laSinhVien = true;
+
+    console.log("Tên:", ten);
+    console.log("Tuổi:", tuoi);
+    console.log("Là sinh viên:", laSinhVien);
+
+    // đổi giá trị
+    tuoi = 21;
+    console.log("Tuổi mới:", tuoi);
+
+    // const
+    const PI = 3.14;
+    const TEN_TRUONG = "Đại học Thủy Lợi";
+
+    console.log("PI =", PI);
+    console.log("Tên trường:", TEN_TRUONG);
+
+    // var
+    var soLanHoc = 1;
+    console.log("Số lần học:", soLanHoc);
+
+
+    // ===== Thử thách =====
+    let monHoc = "Lập trình Web";
+    const soTinChi = 3;
+
+    console.log(`Môn ${monHoc} có ${soTinChi} tín chỉ`);
+
+
+
+    // ==================================================
+    // BÀI 1.3 — KIỂU DỮ LIỆU
+    // ==================================================
+    console.log("===== BÀI 1.3 =====");
+
+    // string
+    let hoTen = "Trần Đức Phú";
+    let diaChi = "Hà Nội";
+
+    console.log(typeof hoTen);
+    console.log(hoTen.length);
+
+    // number
+    let diem = 8.5;
+    let tuoiMoi = 20;
+
+    console.log(typeof diem);
+
+    // boolean
+    let daDangNhap = true;
+    console.log(typeof daDangNhap);
+
+    // null & undefined
+    let chuaNhap = null;
+    let chuaKhoiTao;
+
+    console.log(chuaNhap);
+    console.log(chuaKhoiTao);
+
+    console.log(typeof chuaNhap);
+    console.log(typeof chuaKhoiTao);
+
+    // array
+    let monHocs = ["HTML", "CSS", "JavaScript"];
+
+    console.log(typeof monHocs);
+    console.log(Array.isArray(monHocs));
+
+    // object
+    let sinhVien = {
+        ten: "Phú",
+        tuoi: 20,
+        lop: "CNTT"
+    };
+
+    console.log(typeof sinhVien);
+
+
+    // ===== Thử thách =====
+    let chuoi = "Hello";
+    let so = 10;
+    let dungSai = true;
+    let mang = [1, 2, 3];
+    let doiTuong = { ten: "Phú" };
+
+    console.log(typeof chuoi);
+    console.log(typeof so);
+    console.log(typeof dungSai);
+    console.log(typeof mang);
+    console.log(typeof doiTuong);
+
+
+
+    // ==================================================
+    // BÀI 1.4 — TOÁN TỬ CƠ BẢN
+    // ==================================================
+    console.log("===== BÀI 1.4 =====");
+
+    let a = 10;
+    let b = 3;
+
+    // toán tử số học
+    console.log("Cộng:", a + b);
+    console.log("Trừ:", a - b);
+    console.log("Nhân:", a * b);
+    console.log("Chia:", a / b);
+    console.log("Chia dư:", a % b);
+    console.log("Lũy thừa:", a ** b);
+
+    // toán tử chuỗi
+    let ho = "Trần";
+    let tenMoi = "Phú";
+
+    let hoVaTen = ho + " " + tenMoi;
+    console.log(hoVaTen);
+
+    // template literal
+    let loiChao = `Xin chào ${hoVaTen}`;
+    console.log(loiChao);
+
+    // toán tử so sánh
+    console.log(5 == "5");
+    console.log(5 === "5");
+
+    console.log(5 != "5");
+    console.log(5 !== "5");
+
+    console.log(10 > 5);
+    console.log(10 < 5);
+    console.log(10 >= 10);
+
+    // toán tử logic
+    let diemTB = 7.5;
+    let soBuoiHoc = 12;
+
+    console.log(diemTB >= 5 && soBuoiHoc >= 10);
+    console.log(diemTB >= 8 || soBuoiHoc >= 10);
+    console.log(!(diemTB < 5));
+
+
+    // ===== Thử thách =====
+
+    // 1. diện tích hình tròn
+    let banKinh = 5;
+    let dienTich = PI * (banKinh ** 2);
+
+    console.log(`Diện tích hình tròn = ${dienTich}`);
+
+    // 2. kiểm tra tốt nghiệp
+    let diemTotNghiep = 7;
+    let tongTinChi = 125;
+
+    console.log(diemTotNghiep >= 5 && tongTinChi >= 120);
+
+    // 3. template literal
+    let tenSinhVien = "Phú";
+    let diemSinhVien = 8.5;
+
+    console.log(`Sinh viên ${tenSinhVien} đạt điểm ${diemSinhVien}`);
+</script>
+```
+
+</body>
+
+</html>
